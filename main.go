@@ -1,21 +1,11 @@
 package main
 
 import (
-	"fmt"
 	_ "react_fiesta_backend/database"
-
-	"github.com/gin-gonic/gin"
+	"react_fiesta_backend/routes"
 )
 
 func main() {
-	fmt.Println("Hello World!")
-
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello World!",
-		})
-	})
-
-	r.Run()
+	router := routes.InitRouter()
+	router.Run()
 }

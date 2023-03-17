@@ -7,13 +7,15 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
+var Db *gorm.DB
+var err error
+
 func init() {
-	db, err := gorm.Open("sqlite3", "test.db")
+	Db, err = gorm.Open("sqlite3", "test.db")
 	if err != nil {
 		panic(err)
 	}
 
-	db.AutoMigrate(&models.Account{})
-
-	defer db.Close()
+	Db.AutoMigrate(&models.Account{})
+	// defer Db.Close()
 }

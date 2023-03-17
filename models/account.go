@@ -1,7 +1,7 @@
 package models
 
 type Account struct {
-	ID       uint   `json:"id"`
-	UserName string `json:"UserName"`
+	ID       string `json:"id"`
+	UserName string `json:"UserName" gorm:"unique"`
 	Password string `json:"password"`
 }
