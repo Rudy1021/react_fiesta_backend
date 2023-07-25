@@ -10,6 +10,7 @@ func InitRouter() *gin.Engine {
 	router := gin.Default()
 	router.Use(CORS())
 	router.POST("/signUp", account.AddAccount)
+	router.POST("/login", account.GetAccount)
 	return router
 }
 
